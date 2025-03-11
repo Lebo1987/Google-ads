@@ -3,22 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Ads API Application</title>
+    <title>Google Ads Revenue Estimator</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
-        h1 { color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .search-box {
+            margin-top: 20px;
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background: #0056b3;
+        }
+        .algorithm-box {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e9f5ff;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Our Google Ads API Application</h1>
-        <p>This page serves as a placeholder for our website, currently under development.</p>
-        <p>Our service provides accurate ad revenue estimations using real-time data and trusted sources.</p>
+        <h1>Estimate Google Ads Revenue</h1>
+        <p>Enter a website URL to get an estimated monthly revenue from Google Ads.</p>
+        <input type="text" class="search-box" placeholder="Enter website URL...">
+        <br>
+        <button class="search-button">Estimate Revenue</button>
+    </div>
+    <div class="container algorithm-box">
         <h2>How We Calculate Revenue</h2>
-        <p>We use the following formula to estimate revenue:</p>
+        <p>Our estimation algorithm uses real-time data from trusted sources to provide accurate revenue calculations.</p>
+        <h3>Revenue Formula:</h3>
         <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
-        <p>This page is part of our application for access to the Google Ads API.</p>
+        <p>
+            <strong>Traffic:</strong> Monthly visitors from analytics sources <br>
+            <strong>CTR (Click-Through Rate):</strong> Average percentage of users clicking ads <br>
+            <strong>CPC (Cost-Per-Click):</strong> Estimated ad earnings per click <br>
+            <strong>Ad Placement Factor:</strong> Adjustment based on ad location & visibility
+        </p>
     </div>
 </body>
 </html>
