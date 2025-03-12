@@ -44,15 +44,37 @@
         button:hover {
             background-color: #0056b3;
         }
-        .powered-by {
+        .pricing-table {
             margin-top: 20px;
-            padding: 15px;
+        }
+        .buy-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .buy-button:hover {
+            background-color: #0056b3;
+        }
+        .algorithm-box {
+            margin-top: 30px;
+            padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
             border: 1px solid #ddd;
+            text-align: left;
         }
-        .pricing-table {
-            margin-top: 20px;
+        .algorithm-box h2 {
+            text-align: center;
+        }
+        .formula {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
         }
     </style>
 </head>
@@ -75,27 +97,40 @@
         <div class="pricing-table">
             <div>
                 <h3>10 Searches - $9.99</h3>
-                <div id="paypal-button-container-10"></div>
+                <a href="#" class="buy-button" onclick="processPayment(9.99, '10 Searches')">Buy Now</a>
             </div>
             <div>
                 <h3>100 Searches - $34.99</h3>
-                <div id="paypal-button-container-100"></div>
+                <a href="#" class="buy-button" onclick="processPayment(34.99, '100 Searches')">Buy Now</a>
             </div>
             <div>
                 <h3>1,000 Searches - $299.99</h3>
-                <div id="paypal-button-container-1000"></div>
+                <a href="#" class="buy-button" onclick="processPayment(299.99, '1000 Searches')">Buy Now</a>
             </div>
+        </div>
+
+        <div class="algorithm-box">
+            <h2>How We Calculate Revenue</h2>
+            <p>Our estimation algorithm uses real-time data from trusted sources to provide accurate revenue calculations.</p>
+            <p class="formula">Revenue = Traffic × CTR × CPC × Ad Placement Factor</p>
+            <p><strong>Where:</strong></p>
+            <ul>
+                <li><strong>Traffic</strong> = Monthly visitors from analytics sources</li>
+                <li><strong>CTR (Click-Through Rate)</strong> = Average percentage of users clicking ads</li>
+                <li><strong>CPC (Cost-Per-Click)</strong> = Estimated ad earnings per click</li>
+                <li><strong>Ad Placement Factor</strong> = Adjustment based on ad location & visibility</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        function renderPayPalButton(plan, amount, containerId) {
+        function processPayment(amount, description) {
             paypal.Buttons({
                 createOrder: function(data, actions) {
                     return actions.order.create({
                         purchase_units: [{
                             amount: { value: amount },
-                            description: plan + " Searches Package"
+                            description: description + " Package"
                         }]
                     });
                 },
@@ -104,12 +139,8 @@
                         alert("Transaction completed by " + details.payer.name.given_name);
                     });
                 }
-            }).render("#" + containerId);
+            }).render("body");
         }
-
-        renderPayPalButton("10", "9.99", "paypal-button-container-10");
-        renderPayPalButton("100", "34.99", "paypal-button-container-100");
-        renderPayPalButton("1000", "299.99", "paypal-button-container-1000");
     </script>
 </body>
 </html>
