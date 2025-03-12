@@ -34,47 +34,34 @@
             border-radius: 5px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             background-color: #007bff;
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #0056b3;
         }
-        .pricing-table {
+        .powered-by {
             margin-top: 20px;
-        }
-        .buy-button {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .buy-button:hover {
-            background-color: #0056b3;
-        }
-        .algorithm-box {
-            margin-top: 30px;
-            padding: 20px;
+            padding: 15px;
             background-color: #ffffff;
             border-radius: 10px;
             border: 1px solid #ddd;
-            text-align: left;
         }
-        .algorithm-box h2 {
-            text-align: center;
+        .pricing-table {
+            margin-top: 20px;
         }
-        .formula {
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            margin: 10px 0;
+        .info-box {
+            background: #ffffff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -90,31 +77,13 @@
         </div>
         
         <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
-
-        <h2>Purchase More Searches</h2>
-        <p>Select a plan and complete payment with PayPal:</p>
         
-        <div class="pricing-table">
-            <div>
-                <h3>10 Searches - $9.99</h3>
-                <a href="#" class="buy-button" onclick="processPayment(9.99, '10 Searches')">Buy Now</a>
-            </div>
-            <div>
-                <h3>100 Searches - $34.99</h3>
-                <a href="#" class="buy-button" onclick="processPayment(34.99, '100 Searches')">Buy Now</a>
-            </div>
-            <div>
-                <h3>1,000 Searches - $299.99</h3>
-                <a href="#" class="buy-button" onclick="processPayment(299.99, '1000 Searches')">Buy Now</a>
-            </div>
-        </div>
-
-        <div class="algorithm-box">
+        <div class="info-box">
             <h2>How We Calculate Revenue</h2>
             <p>Our estimation algorithm uses real-time data from trusted sources to provide accurate revenue calculations.</p>
-            <p class="formula">Revenue = Traffic × CTR × CPC × Ad Placement Factor</p>
+            <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
             <p><strong>Where:</strong></p>
-            <ul>
+            <ul style="text-align: left; display: inline-block;">
                 <li><strong>Traffic</strong> = Monthly visitors from analytics sources</li>
                 <li><strong>CTR (Click-Through Rate)</strong> = Average percentage of users clicking ads</li>
                 <li><strong>CPC (Cost-Per-Click)</strong> = Estimated ad earnings per click</li>
@@ -122,25 +91,23 @@
             </ul>
         </div>
     </div>
-
-    <script>
-        function processPayment(amount, description) {
-            paypal.Buttons({
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: { value: amount },
-                            description: description + " Package"
-                        }]
-                    });
-                },
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(details) {
-                        alert("Transaction completed by " + details.payer.name.given_name);
-                    });
-                }
-            }).render("body");
-        }
-    </script>
+    
+    <div class="container pricing-table">
+        <h2>Purchase More Searches</h2>
+        <p>Select a plan and complete payment with PayPal:</p>
+        <div>
+            <h3>10 Searches - $9.99</h3>
+            <button onclick="window.location.href='#'">Buy Now</button>
+        </div>
+        <div>
+            <h3>100 Searches - $34.99</h3>
+            <button onclick="window.location.href='#'">Buy Now</button>
+        </div>
+        <div>
+            <h3>1,000 Searches - $299.99</h3>
+            <button onclick="window.location.href='#'">Buy Now</button>
+        </div>
+    </div>
 </body>
 </html>
+         
