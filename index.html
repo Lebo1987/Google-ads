@@ -23,17 +23,6 @@
         h1, h2 {
             color: #007bff;
         }
-        .powered-by {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
-        .powered-by img {
-            max-height: 30px;
-            margin: 5px;
-        }
         .search-box {
             margin: 20px 0;
         }
@@ -54,28 +43,70 @@
         button:hover {
             background-color: #0056b3;
         }
+        .powered-by {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .payment {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to Our Google Ads Revenue Estimator</h1>
         <p>Our tool provides accurate ad revenue estimations using real-time data and trusted sources.</p>
-        
+
         <h2>Estimate Google Ads Revenue</h2>
         <div class="search-box">
-            <input type="text" placeholder="Enter website URL...">
-            <button>Estimate Revenue</button>
+            <input type="text" id="websiteInput" placeholder="Enter website URL...">
+            <button onclick="estimateRevenue()">Estimate Revenue</button>
         </div>
         
+        <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
+
         <h2>How We Calculate Revenue</h2>
-        <p>We use the following formula to estimate revenue:</p>
         <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
         <p>Our algorithm leverages the most up-to-date industry data for accuracy.</p>
+
+        <div class="powered-by">
+            <p><strong>We use the most trusted tools to provide the most accurate revenue estimation:</strong></p>
+            <p>✅ Google Ads API | ✅ Ahrefs.com | ✅ SimilarWeb | ✅ SEMrush | ✅ Public Web Data</p>
+        </div>
+
+        <div class="payment">
+            <h2>Upgrade to Unlimited Searches</h2>
+            <p>Choose a plan and get unlimited searches:</p>
+            <button onclick="purchasePlan('basic')">Basic - $34.99 for 100 searches</button>
+            <button onclick="purchasePlan('pro')">Pro - $299.99 for 1000 searches</button>
+        </div>
     </div>
-    
-    <div class="powered-by">
-        <p><strong>We use the most trusted tools to provide the most accurate revenue estimation:</strong></p>
-        <p>✅ Google Ads API | ✅ Ahrefs.com | ✅ SimilarWeb | ✅ SEMrush | ✅ Public Web Data</p>
-    </div>
+
+    <script>
+        let remainingSearches = 5;
+
+        function estimateRevenue() {
+            if (remainingSearches > 0) {
+                remainingSearches--;
+                document.getElementById("remainingSearches").innerText = remainingSearches;
+                alert("Your revenue estimate is being calculated...");
+            } else {
+                alert("You have reached the free search limit. Please upgrade to continue.");
+            }
+        }
+
+        function purchasePlan(plan) {
+            let url = "";
+            if (plan === 'basic') {
+                url = "https://www.paypal.com/webapps/hermes?token=basic_plan";
+            } else if (plan === 'pro') {
+                url = "https://www.paypal.com/webapps/hermes?token=pro_plan";
+            }
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
