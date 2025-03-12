@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Ads Revenue Estimator</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZDDiKu4xdeq6LIcG271eUkvACox-YKsAw1b6CFA8Z2WZhQf9zcFpL_Ou0Houvn5kVqEJfy_LOYzh9V2&currency=USD"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,30 +54,6 @@
         .pricing-table {
             margin-top: 20px;
         }
-        .pricing-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .pricing-table th, .pricing-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-        .pricing-table th {
-            background-color: #007bff;
-            color: white;
-        }
-        .purchase-button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .purchase-button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
@@ -92,72 +69,47 @@
         
         <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
 
-        <h2>How We Calculate Revenue</h2>
-        <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
-        <p>Our algorithm leverages the most up-to-date industry data for accuracy.</p>
-
-        <div class="powered-by">
-            <p><strong>We use the most trusted tools to provide the most accurate revenue estimation:</strong></p>
-            <p>✅ Google Ads API | ✅ Ahrefs.com | ✅ SimilarWeb | ✅ SEMrush | ✅ Public Web Data</p>
-        </div>
-
+        <h2>Purchase More Searches</h2>
+        <p>Select a plan and complete payment with PayPal:</p>
+        
         <div class="pricing-table">
-            <h2>Purchase More Searches</h2>
-            <p>Choose a plan and get more searches:</p>
-            <table>
-                <tr>
-                    <th>Package</th>
-                    <th>Price</th>
-                    <th>Price per Search</th>
-                    <th>Buy</th>
-                </tr>
-                <tr>
-                    <td>5 Searches (Free)</td>
-                    <td><strong>$0</strong></td>
-                    <td>Free</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>10 Searches</td>
-                    <td><strong>$9.99</strong></td>
-                    <td>$1.00 per search</td>
-                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="your-paypal-email@example.com">
-                        <input type="hidden" name="item_name" value="10 Searches">
-                        <input type="hidden" name="amount" value="9.99">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="submit" value="Buy Now" class="purchase-button">
-                    </form></td>
-                </tr>
-                <tr>
-                    <td>100 Searches</td>
-                    <td><strong>$34.99</strong></td>
-                    <td>$0.35 per search</td>
-                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="your-paypal-email@example.com">
-                        <input type="hidden" name="item_name" value="100 Searches">
-                        <input type="hidden" name="amount" value="34.99">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="submit" value="Buy Now" class="purchase-button">
-                    </form></td>
-                </tr>
-                <tr>
-                    <td>1,000 Searches</td>
-                    <td><strong>$299.99</strong></td>
-                    <td>$0.30 per search</td>
-                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="lebovich12345@gmail.com">
-                        <input type="hidden" name="item_name" value="1000 Searches">
-                        <input type="hidden" name="amount" value="299.99">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="submit" value="Buy Now" class="purchase-button">
-                    </form></td>
-                </tr>
-            </table>
+            <div>
+                <h3>10 Searches - $9.99</h3>
+                <div id="paypal-button-container-10"></div>
+            </div>
+            <div>
+                <h3>100 Searches - $34.99</h3>
+                <div id="paypal-button-container-100"></div>
+            </div>
+            <div>
+                <h3>1,000 Searches - $299.99</h3>
+                <div id="paypal-button-container-1000"></div>
+            </div>
         </div>
     </div>
+
+    <script>
+        function renderPayPalButton(plan, amount, containerId) {
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: { value: amount },
+                            description: plan + " Searches Package"
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert("Transaction completed by " + details.payer.name.given_name);
+                    });
+                }
+            }).render("#" + containerId);
+        }
+
+        renderPayPalButton("10", "9.99", "paypal-button-container-10");
+        renderPayPalButton("100", "34.99", "paypal-button-container-100");
+        renderPayPalButton("1000", "299.99", "paypal-button-container-1000");
+    </script>
 </body>
 </html>
