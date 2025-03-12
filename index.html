@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Ads Revenue Estimator</title>
+    <title>Google Ads Revenue Estimator - Pricing</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,90 +23,71 @@
         h1, h2 {
             color: #007bff;
         }
-        .search-box {
-            margin: 20px 0;
+        .pricing-table {
+            margin-top: 20px;
         }
-        input[type="text"] {
-            width: 80%;
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .pricing-table th, .pricing-table td {
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #ddd;
         }
-        button {
+        .pricing-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .purchase-button {
             padding: 10px 20px;
             border: none;
             background-color: #007bff;
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
         }
-        button:hover {
+        .purchase-button:hover {
             background-color: #0056b3;
-        }
-        .powered-by {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
-        .payment {
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Google Ads Revenue Estimator</h1>
-        <p>Our tool provides accurate ad revenue estimations using real-time data from trusted sources.</p>
-
-        <h2>Estimate Google Ads Revenue</h2>
-        <div class="search-box">
-            <input type="text" id="websiteInput" placeholder="Enter website URL...">
-            <button onclick="estimateRevenue()">Estimate Revenue</button>
+        <h1>Choose Your Search Package</h1>
+        <p>Purchase more searches and continue estimating Google Ads revenue.</p>
+        
+        <div class="pricing-table">
+            <table>
+                <tr>
+                    <th>Package</th>
+                    <th>Price</th>
+                    <th>Price per Search</th>
+                </tr>
+                <tr>
+                    <td>5 Searches (Free)</td>
+                    <td><strong>$0</strong></td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td>10 Searches</td>
+                    <td><strong>$9.99</strong></td>
+                    <td>$1.00 per search</td>
+                </tr>
+                <tr>
+                    <td>100 Searches</td>
+                    <td><strong>$34.99</strong></td>
+                    <td>$0.35 per search</td>
+                </tr>
+                <tr>
+                    <td>1,000 Searches</td>
+                    <td><strong>$299.99</strong></td>
+                    <td>$0.30 per search</td>
+                </tr>
+            </table>
         </div>
         
-        <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
-
-        <h2>How We Calculate Revenue</h2>
-        <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
-        <p>Our algorithm leverages the most up-to-date industry data for accuracy.</p>
-
-        <div class="powered-by">
-            <p><strong>We use the most trusted tools to provide the most accurate revenue estimation:</strong></p>
-            <p>✅ Google Ads API | ✅ Ahrefs.com | ✅ SimilarWeb | ✅ SEMrush | ✅ Public Web Data</p>
-        </div>
-
-        <div class="payment">
-            <h2>Purchase More Searches</h2>
-            <p>Choose a plan and get unlimited searches:</p>
-            <button onclick="purchasePlan('basic')">Basic - $34.99 for 100 searches</button>
-            <button onclick="purchasePlan('pro')">Pro - $299.99 for 1000 searches</button>
-        </div>
+        <button class="purchase-button">Purchase More Searches</button>
     </div>
-
-    <script>
-        let remainingSearches = 5;
-
-        function estimateRevenue() {
-            if (remainingSearches > 0) {
-                remainingSearches--;
-                document.getElementById("remainingSearches").innerText = remainingSearches;
-                alert("Your revenue estimate is being calculated...");
-            } else {
-                alert("You have reached the free search limit. Please upgrade to continue.");
-            }
-        }
-
-        function purchasePlan(plan) {
-            let url = "";
-            if (plan === 'basic') {
-                url = "https://www.paypal.com/webapps/hermes?token=basic_plan";
-            } else if (plan === 'pro') {
-                url = "https://www.paypal.com/webapps/hermes?token=pro_plan";
-            }
-            window.location.href = url;
-        }
-    </script>
 </body>
 </html>
