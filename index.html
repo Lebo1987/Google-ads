@@ -23,28 +23,6 @@
         h1, h2 {
             color: #007bff;
         }
-        .search-box {
-            margin-top: 20px;
-            padding: 10px;
-            width: 80%;
-            max-width: 500px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .search-button {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .search-button:hover {
-            background: #0056b3;
-        }
         .powered-by {
             margin-top: 20px;
             padding: 15px;
@@ -52,23 +30,47 @@
             border-radius: 10px;
             border: 1px solid #ddd;
         }
+        .powered-by img {
+            max-height: 30px;
+            margin: 5px;
+        }
+        .search-box {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Our Google Ads API Application</h1>
-        <p>This page serves as a placeholder for our website, currently under development.</p>
-        <p>Our service provides accurate ad revenue estimations using real-time data and trusted sources.</p>
+        <h1>Welcome to Our Google Ads Revenue Estimator</h1>
+        <p>Our tool provides accurate ad revenue estimations using real-time data and trusted sources.</p>
         
         <h2>Estimate Google Ads Revenue</h2>
-        <input type="text" class="search-box" placeholder="Enter website URL...">
-        <br>
-        <button class="search-button">Estimate Revenue</button>
+        <div class="search-box">
+            <input type="text" placeholder="Enter website URL...">
+            <button>Estimate Revenue</button>
+        </div>
         
         <h2>How We Calculate Revenue</h2>
         <p>We use the following formula to estimate revenue:</p>
         <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
-        <p>This page is part of our application for access to the Google Ads API.</p>
+        <p>Our algorithm leverages the most up-to-date industry data for accuracy.</p>
     </div>
     
     <div class="powered-by">
