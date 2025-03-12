@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Ads Revenue Estimator - Pricing</title>
+    <title>Google Ads Revenue Estimator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,6 +22,33 @@
         }
         h1, h2 {
             color: #007bff;
+        }
+        .search-box {
+            margin: 20px 0;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .powered-by {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
         }
         .pricing-table {
             margin-top: 20px;
@@ -54,10 +81,29 @@
 </head>
 <body>
     <div class="container">
-        <h1>Choose Your Search Package</h1>
-        <p>Purchase more searches and continue estimating Google Ads revenue.</p>
+        <h1>Google Ads Revenue Estimator</h1>
+        <p>Our tool provides accurate ad revenue estimations using real-time data and trusted sources.</p>
         
+        <h2>Estimate Google Ads Revenue</h2>
+        <div class="search-box">
+            <input type="text" id="websiteInput" placeholder="Enter website URL...">
+            <button onclick="estimateRevenue()">Estimate Revenue</button>
+        </div>
+        
+        <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
+
+        <h2>How We Calculate Revenue</h2>
+        <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
+        <p>Our algorithm leverages the most up-to-date industry data for accuracy.</p>
+
+        <div class="powered-by">
+            <p><strong>We use the most trusted tools to provide the most accurate revenue estimation:</strong></p>
+            <p>✅ Google Ads API | ✅ Ahrefs.com | ✅ SimilarWeb | ✅ SEMrush | ✅ Public Web Data</p>
+        </div>
+
         <div class="pricing-table">
+            <h2>Purchase More Searches</h2>
+            <p>Choose a plan and get more searches:</p>
             <table>
                 <tr>
                     <th>Package</th>
