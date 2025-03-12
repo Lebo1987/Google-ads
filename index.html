@@ -46,13 +46,6 @@
         button:hover {
             background-color: #0056b3;
         }
-        .powered-by {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
         .pricing-table {
             margin-top: 20px;
         }
@@ -62,6 +55,18 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -77,36 +82,46 @@
         </div>
         
         <p id="searchCount">Remaining free searches: <span id="remainingSearches">5</span></p>
-        
-        <div class="info-box">
-            <h2>How We Calculate Revenue</h2>
-            <p>Our estimation algorithm uses real-time data from trusted sources to provide accurate revenue calculations.</p>
-            <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
-            <p><strong>Where:</strong></p>
-            <ul style="text-align: left; display: inline-block;">
-                <li><strong>Traffic</strong> = Monthly visitors from analytics sources</li>
-                <li><strong>CTR (Click-Through Rate)</strong> = Average percentage of users clicking ads</li>
-                <li><strong>CPC (Cost-Per-Click)</strong> = Estimated ad earnings per click</li>
-                <li><strong>Ad Placement Factor</strong> = Adjustment based on ad location & visibility</li>
-            </ul>
-        </div>
+    </div>
+    
+    <div class="container info-box">
+        <h2>How We Calculate Revenue</h2>
+        <p>Our estimation algorithm uses real-time data from trusted sources to provide accurate revenue calculations.</p>
+        <p><strong>Revenue = Traffic × CTR × CPC × Ad Placement Factor</strong></p>
+        <p><strong>Where:</strong></p>
+        <ul style="text-align: left; display: inline-block;">
+            <li><strong>Traffic</strong> = Monthly visitors from analytics sources</li>
+            <li><strong>CTR (Click-Through Rate)</strong> = Average percentage of users clicking ads</li>
+            <li><strong>CPC (Cost-Per-Click)</strong> = Estimated ad earnings per click</li>
+            <li><strong>Ad Placement Factor</strong> = Adjustment based on ad location & visibility</li>
+        </ul>
     </div>
     
     <div class="container pricing-table">
         <h2>Purchase More Searches</h2>
         <p>Select a plan and complete payment with PayPal:</p>
-        <div>
-            <h3>10 Searches - $9.99</h3>
-            <button onclick="window.location.href='#'">Buy Now</button>
-        </div>
-        <div>
-            <h3>100 Searches - $34.99</h3>
-            <button onclick="window.location.href='#'">Buy Now</button>
-        </div>
-        <div>
-            <h3>1,000 Searches - $299.99</h3>
-            <button onclick="window.location.href='#'">Buy Now</button>
-        </div>
+        <table>
+            <tr>
+                <th>Search Package</th>
+                <th>Price</th>
+                <th>Buy Now</th>
+            </tr>
+            <tr>
+                <td>10 Searches</td>
+                <td>$9.99</td>
+                <td><button onclick="window.location.href='#'">Buy Now</button></td>
+            </tr>
+            <tr>
+                <td>100 Searches</td>
+                <td>$34.99</td>
+                <td><button onclick="window.location.href='#'">Buy Now</button></td>
+            </tr>
+            <tr>
+                <td>1,000 Searches</td>
+                <td>$299.99</td>
+                <td><button onclick="window.location.href='#'">Buy Now</button></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
