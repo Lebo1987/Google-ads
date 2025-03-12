@@ -109,31 +109,55 @@
                     <th>Package</th>
                     <th>Price</th>
                     <th>Price per Search</th>
+                    <th>Buy</th>
                 </tr>
                 <tr>
                     <td>5 Searches (Free)</td>
                     <td><strong>$0</strong></td>
                     <td>Free</td>
+                    <td>-</td>
                 </tr>
                 <tr>
                     <td>10 Searches</td>
                     <td><strong>$9.99</strong></td>
                     <td>$1.00 per search</td>
+                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="your-paypal-email@example.com">
+                        <input type="hidden" name="item_name" value="10 Searches">
+                        <input type="hidden" name="amount" value="9.99">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="submit" value="Buy Now" class="purchase-button">
+                    </form></td>
                 </tr>
                 <tr>
                     <td>100 Searches</td>
                     <td><strong>$34.99</strong></td>
                     <td>$0.35 per search</td>
+                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="your-paypal-email@example.com">
+                        <input type="hidden" name="item_name" value="100 Searches">
+                        <input type="hidden" name="amount" value="34.99">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="submit" value="Buy Now" class="purchase-button">
+                    </form></td>
                 </tr>
                 <tr>
                     <td>1,000 Searches</td>
                     <td><strong>$299.99</strong></td>
                     <td>$0.30 per search</td>
+                    <td><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="lebovich12345@gmail.com">
+                        <input type="hidden" name="item_name" value="1000 Searches">
+                        <input type="hidden" name="amount" value="299.99">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="submit" value="Buy Now" class="purchase-button">
+                    </form></td>
                 </tr>
             </table>
         </div>
-        
-        <button class="purchase-button">Purchase More Searches</button>
     </div>
 </body>
 </html>
